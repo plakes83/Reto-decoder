@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador y Desencriptador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        ">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <img class="logo" src="assets/alura logo.svg" alt="logoalura" />
+    </header>
+    <main class="main">
+        <section class="container">
+            <div class="row">
+                <!--COLUMNA IZQUIERDA-->
+                <div class="col-12 col-xl-6">
+                    <div class="row g-0">
+                        <div class="encripta col-12">
+                            <textarea class="text_tarea_ingreso" id="inputText"
+                                placeholder="Ingrese el texto aqui"></textarea>
+                            <p id="error mesage"></p>
+                        </div>
+                        <div class="warning col-12">
+                            <div class="row g-0">
+                                <div class="col-auto">
+                                    <img class="icono-image"
+                                        src="exclamacion.png"
+                                        alt="imagen de exclamacion">
+                                </div>
+                                <div class="col-auto">
+                                    <p>Solo letras minúsculas y sin acentos</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="botones col-12">
+                            <button class="button-encriptar" onclick="encriptar()">Encriptar</button>
+                            <button onclick="desencriptar()">Desencriptar</button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!--COLUMNA DERECHA-->
+                <div class="col-12 col-xl-6">
+                    <div>
+                        <textarea id="outputText" placeholder="Resultado..." readonly></textarea>
+                    </div>
+                    <div class="botones_copiar">
+                        <button id="copy-button" onclick="copiar()">Copiar</button>
+                    </div>
+                </div>
+               <!--FOOTER-->
+               <footer class="footer" class="col-12"> Desarrollado por Paola Lagos </footer>
+            </div>
+        </section>
+    </main>
+    <script>
+        function encriptar() {
+            let texto = document.getElementById("inputText").value;
+            let textoEncriptado = texto
+                .replace(/e/g, "enter")
+                .replace(/i/g, "imes")
+                .replace(/a/g, "ai")
+                .replace(/o/g, "ober")
+                .replace(/u/g, "ufat");
+            document.getElementById("outputText").value = textoEncriptado;
+        }
+        function desencriptar() {
+            let texto = document.getElementById("inputText").value;
+            let textoDesencriptado = texto
+                .replace(/enter/g, "e")
+                .replace(/imes/g, "i")
+                .replace(/ai/g, "a")
+                .replace(/ober/g, "o")
+                .replace(/ufat/g, "u");
+            document.getElementById("outputText").value = textoDesencriptado;
+        }
+    </script>
+</body>
+
+</html>
